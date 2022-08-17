@@ -38,6 +38,10 @@ section {
 	min-height: 80vh;
 }
 
+.intro .content {
+	margin-left: 3rem;
+}
+
 .navbar {
 	position: absolute;
 	top: 0;
@@ -432,6 +436,7 @@ svg:hover {
 
 	.intro .content {
 		text-align: center;
+		margin: 0;
 	}
 	
 	.card-wrapper .info {
