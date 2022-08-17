@@ -13,6 +13,10 @@ html {
     overflow-x: hidden;
 }
 
+.overflow-wrapper {
+	overflow-x: hidden;
+}
+
 body {
 	background-color: #fff;
     color: #1d2644;
