@@ -495,6 +495,11 @@ svg:hover {
 	background-size: cover;
 }
 
+.card-wrapper:nth-child(5) .thumb {
+	background: url(./images/p5.jpg) no-repeat center;
+	background-size: cover;
+}
+
 .info {
   width: auto;
   height: 350px;
