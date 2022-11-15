@@ -146,7 +146,7 @@ svg:hover {
 }
 
 .tech {
-	margin-top: 40px;
+	margin-top: 100px;
 }
 
 .tech .items {
@@ -497,6 +497,11 @@ svg:hover {
 
 .card-wrapper:nth-child(5) .thumb {
 	background: url(./images/p5.jpg) no-repeat center;
+	background-size: cover;
+}
+
+.card-wrapper:nth-child(6) .thumb {
+	background: url(./images/p6.jpg) no-repeat center;
 	background-size: cover;
 }
 
