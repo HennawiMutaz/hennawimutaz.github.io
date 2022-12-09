@@ -29,18 +29,16 @@ a {
 	color: inherit;
 }
 
-section {
+section:not(section:last-child) {
     min-height: 100vh;
+	margin-bottom: 50px;
 }
 
 .intro {
-	margin-bottom: 50px;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 	position: relative;
-	max-height: 80vh;
-	min-height: 80vh;
 }
 
 .intro .content {
@@ -56,7 +54,7 @@ section {
 .intro h1 {
 	font-size: 3rem;
 	font-weight: 400;
-	opacity: 0;
+	/* opacity: 0; */
 	color: #1d2644;
 }
 
@@ -69,15 +67,13 @@ section {
 }
 
 .my-btn {
-	opacity: 0;
+	/* opacity: 0; */
 	font-weight: 700;
 	border: 2px solid transparent;
 	background-color: var(--primary-col);
 	color:#FFF;
 	padding:18px 30px;
 	transition: border-color 0.3s ease-out, background-color 0.1s ease-out;
-	opacity: 0;
-	transition: opacity 0.5s 0.25s cubic-bezier(0.17, 0.67, 0.5, 1.03);
 	margin-top: 20px;
 	display: inline-block;
 }
@@ -115,12 +111,12 @@ section {
     background: #555;
  }
 
-.about, .projects, .tech, .contact {
+.about, .projects, .tech, .contact, .certificates {
     text-align: center;
  }
 
 section .title { 
-    opacity: 0;
+    /* opacity: 0; */
 	font-size: 2em;
  }
 
@@ -133,7 +129,6 @@ hr {
 }
 
 svg {
-    opacity: 0;
 	height: 100px;
 	width: 100px;
 	transition: bottom 330ms ease-in-out;
@@ -156,57 +151,6 @@ svg:hover {
 .tech .items div {
 	padding: 20px;
 	margin-bottom: 20px;
-}
-
-.ani-left {
-	animation: left 2s ease-in-out;
-	animation-fill-mode: forwards;
-}
-
-.ani-right {
-	animation: right 2s ease-in-out;
-	animation-fill-mode: forwards;
-}
-
-.ani-up {
-	animation: up 2s ease-in-out;
-	animation-fill-mode: forwards;
-}
-
-@keyframes left {
-	from {
-		opacity: 0;
-		transform: translateX(100px);
-	}
-
-	to {
-		opacity: 1;
-		transform: translateX(0px);
-	}
-}
-
-@keyframes right {
-	from {
-		opacity: 0;
-		transform: translateX(-100px);
-	}
-
-	to {
-		opacity: 1;
-		transform: translateX(0px);
-	}
-}
-
-@keyframes up {
-	from {
-		opacity: 0;
-		transform: translateY(100px);
-	}
-
-	to {
-		opacity: 1;
-		transform: translateY(0px);
-	}
 }
 
 .contact {
@@ -358,8 +302,6 @@ svg:hover {
 	display: inline;
 	transition: background-color 0.1s, border 0.3s;
 	position: relative;
-	opacity: 0;
-	transition: opacity 0.4s ease-in-out;
 }
 
 .btn-link:hover {
@@ -412,22 +354,7 @@ svg:hover {
 
 .text p {
 	margin-bottom: 10px;
-	opacity: 0;
 }
-
-  .appear {
-	animation: appear 2s linear;
-	animation-fill-mode: forwards;
-  }
-
-  @keyframes appear {
-	from {
-		opacity: 0;
-	} 
-	to {
-		opacity: 1;
-	}
-  }
 
 *::selection {
 	background-color: var(--primary-col) ;
@@ -452,14 +379,22 @@ svg:hover {
 		opacity: 1;
 	}
 
-	canvas {
+	.cert .cert-wrapper {
+		margin: 10px;
+	}
+	.cert img {
 		display: none;
+	}
+	.cert .cert-wrapper .content {
+		width: auto !important;
+	}
+	.cert .cert-wrapper .content p {
+		opacity: 1 !important;
 	}
 }
 
 
 .card-wrapper {
-  opacity: 0;
   width: 350px;
   height: 350px;
   border-radius: 3px;
@@ -528,8 +463,8 @@ svg:hover {
   line-height: 2;
   font-size: 0.95rem;
   color: rgba(21, 37, 54, 0.7);
-  opacity: 0;
   transition: 0.5s 0.25s cubic-bezier(0.17, 0.67, 0.5, 1.03);
+  opacity: 0;
 }
 
 .card-wrapper:hover .info {
@@ -539,3 +474,86 @@ svg:hover {
 .card-wrapper:hover .txt, .card-wrapper:hover .my-btn {
 	opacity: 1;
 }
+
+
+/* Certificates */
+.cert {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 50px 0;
+  }
+  
+  .cert .cert-wrapper {
+	position: relative;
+	width: 600px;
+	height: 350px;
+	border-radius: 20px;
+	display: flex;
+	align-items: center;
+	transition: 0.5s;
+  }
+  
+
+.cert .cert-wrapper::before {
+	content: '';
+	border-radius: 20px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transition: 0.5s;
+	background: #07192f;
+  }
+  
+  .cert .cert-wrapper img {
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	pointer-events: none;
+	transition: 0.5s;
+	left: 72%;
+	height: 100px;
+  }
+  
+  .cert .cert-wrapper .content {
+	position: absolute;
+	width: 50%;
+	padding: 20px 20px 20px 40px;
+	transition: 0.3s;
+  }
+  
+  .cert .cert-wrapper .content h2 {
+	color: #FFF;
+	text-transform: uppercase;
+	font-size: 2rem;
+	margin-bottom: 15px;
+  }
+  
+  .cert .cert-wrapper .content p {
+	color: #FFF;
+	opacity: 0;
+  }
+  
+  .cert .cert-wrapper .content a {
+	position: relative;
+	color: #000;
+	padding: 10px 20px;
+	background: #FFF;
+	margin-top: 10px;
+	display: inline-block;
+	text-decoration: none;
+	font-weight: 700;
+	border: 2px solid transparent;
+	transition: transform 200ms;
+  }
+
+  .cert .cert-wrapper .content a:hover {
+	background: none;
+	box-shadow: 0 3px rgba(5, 5, 5, 0.2);
+	border: 2px solid #FFF;
+	color: #FFF;
+	transform: scale(1.1);
+  }
+  

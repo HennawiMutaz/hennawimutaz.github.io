@@ -1,10 +1,3 @@
-const container = document.getElementById('intro');
-const about = document.getElementById('about');
-const projects = document.getElementById('projects');
-const tech = document.getElementById('tech');
-const contact = document.getElementById('contact');
-const svgList = document.querySelectorAll('.tech svg');
-const DELAY = 0.4;
 const propList = {
     el: ".intro",
     mouseControls: true,
@@ -15,71 +8,19 @@ const propList = {
     scale: 1.00,
     scaleMobile: 1.00,
     wingSpan: 23.00,
-    separation: 50.00,
+    separation: 40.00,
     alignment: 38.00,
     cohesion: 29.00,
-    quantity: 3.00,
+    quantity: 4.00,
     backgroundColor: '#f6f5f1'
   };
+
 window.onload = function () {
-    const text = container.querySelector('.content h1');
-    const btn = container.querySelector('.content .my-btn');
-    text.classList.add('ani-left');
-    btn.classList.add('ani-right');
+    const text = document.querySelector('.intro .content h1');
+    const projectSection = document.querySelector('.projects');
+    const infos = projectSection.querySelectorAll('.card-wrapper .info');
 
 
-window.addEventListener('scroll', function() {
-    if (window.scrollY > container.clientHeight - 500) {
-        const title = about.querySelector('.title');
-        const hr = about.querySelector('hr');
-        const img = about.querySelector('.about-img');
-        const text = about.querySelectorAll('.text p');
-        title.classList.add('ani-right');
-        hr.classList.add('ani-right');
-        text[0].classList.add('appear');
-        text[1].classList.add('appear');
-        img.classList.add('ani-left');
-        setTimeout(() => {
-            img.classList.add('float');
-        }, 3000);
-    }
-    if (window.scrollY > (about.offsetTop + about.offsetTop / 4)) {
-        const title = projects.querySelector('.title');
-        const hr = projects.querySelector('hr');
-        const items = projects.querySelectorAll('.card-wrapper');
-        items.forEach((item, i) => {
-            item.style.animationDelay = `${DELAY * i}s`;
-            item.classList.add('ani-up');
-        });
-        title.classList.add('ani-left');
-        hr.classList.add('ani-left');
-    }
-    if (window.scrollY > (projects.offsetTop + projects.offsetTop / 4)) {
-        const title = tech.querySelector('.title');
-        const hr = tech.querySelector('hr');
-        title.classList.add('ani-right');
-        hr.classList.add('ani-right');
-        svgList.forEach((svg, i) => {
-            svg.style.animationDelay = `${DELAY * i}s`;
-            svg.classList.add('ani-up');
-        });
-    }
-    if (window.scrollY > tech.offsetTop + 500) {
-        const title = contact.querySelector('.title');
-        const hr = contact.querySelector('hr');
-        title.classList.add('ani-left');
-        hr.classList.add('ani-left');
-    }
-});
-
-svgList.forEach(svg => {
-    svg.addEventListener('mouseover', (el) => {
-        el.currentTarget.style.bottom = '10px';
-})
-    svg.addEventListener('mouseout', (el) => {
-        el.currentTarget.style.bottom = '0px';
-})
-}); 
 
     // dark/light mode
     const modeBtn = document.getElementById('mode-btn');
@@ -96,6 +37,13 @@ svgList.forEach(svg => {
             const btn = document.querySelector('a.my-btn');
             btn.removeAttribute('light');
             document.querySelector('canvas').remove();
+            document.querySelector('.express').style.filter='invert(1)';
+            for (let i = 0; i < infos.length; i++) {
+                const info = infos[i];
+                info.style.backgroundColor = '#07192f';
+                info.querySelector('h2').style.color = '#FFFFFF';
+                info.querySelector('p').style.color = '#FFFFFF';
+            }
             const props = {color1: '#ff681c', color2: '#FFF', backgroundColor: '#07192f'};
             changeBackground(props);
         } else {
@@ -107,7 +55,14 @@ svgList.forEach(svg => {
             const btn = document.querySelector('a.my-btn');
             btn.setAttribute('light','');
             document.querySelector('canvas').remove();
+            document.querySelector('.express').style.filter='invert(0)';
             text.style.color = '#1d2644';
+            for (let i = 0; i < infos.length; i++) {
+                const info = infos[i];
+                info.style.backgroundColor = '#FFF';
+                info.querySelector('h2').style.color = '#000';
+                info.querySelector('p').style.color = '#000';
+            }
             changeBackground();
         }
     }); 
@@ -122,3 +77,15 @@ function changeBackground(props) {
         VANTA.BIRDS({...propList, ...props});
     }
 }
+
+/*===== SCROLL REVEAL ANIMATION =====*/
+const sr = ScrollReveal({
+    origin: 'top',
+    distance: '60px',
+    duration: 2000,
+    delay: 200,
+//     reset: true
+});
+
+sr.reveal('.content, .about, .projects, .tech, .certificates, .navbar',{}); 
+sr.reveal('.about-img, .card-wrapper, .items div, .cert',{delay: 200}); 
