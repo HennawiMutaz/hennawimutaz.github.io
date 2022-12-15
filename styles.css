@@ -439,6 +439,10 @@ svg:hover {
 	background: url(./images/p6.jpg) no-repeat center;
 	background-size: cover;
 }
+.card-wrapper:nth-child(7) .thumb {
+	background: url(./images/p7.jpg) no-repeat center;
+	background-size: cover;
+}
 
 .info {
   width: auto;
