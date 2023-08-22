@@ -14,7 +14,7 @@ const propList = {
     quantity: 4.00,
     backgroundColor: '#f6f5f1'
   };
-
+ 
 window.onload = function () {
     const text = document.querySelector('.intro .content h1');
     const projectSection = document.querySelector('.projects');
