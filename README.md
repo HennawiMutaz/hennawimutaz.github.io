@@ -1,7 +1,5 @@
 <h1 align="center">Hi 👋, I'm Mutaz</h1>
-<h3 align="center">A passionate full-stack developer from Canada</h3>
-
-- 🌱 I’m currently learning **Angular and ML**
+<h3 align="center">A passionate full-stack developer</h3>
 
 - 👨‍💻 All of my projects are available at [https://hennawimutaz.github.io/portfolio/](https://hennawimutaz.github.io/portfolio/)
 
